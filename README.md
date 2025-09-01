@@ -5,10 +5,10 @@ Train a AI fighting against traditional AI KFM
 Win Rate > 0.7
 
 # Process
-Basic memory reading - ✔
-Automatic frame-by-frame stepping
-Reading/writing critical data
-State and button mapping
-Data processing
-Model training
-...
+- Basic memory reading - ✔
+- Automatic frame-by-frame stepping
+- Reading/writing critical data
+- State and button mapping
+- Data processing
+- Model training
+- ...
