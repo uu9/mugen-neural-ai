@@ -1,0 +1,36 @@
+;
+; Filename:profile_1.cfg
+;
+
+[Mugen]
+ProfileName = starter
+MugenExe = D:\AI\fight-ai\mugen1.1\mugen.exe
+SelectDotDef = D:\AI\fight-ai\mugen1.1\data\select.def
+MugenCommandLineOptions = 
+DebugMode = 1
+SpeedUp = 0
+SkipMode = 0
+ExperimentalBPS = 0
+DefaultGameMode = 2
+[AutoMode]
+AutoMode = 1
+Rounds = 99
+MaxRoundTime = 10
+StrictRoundMode = 0
+ErrorRetry = 0
+DefaultColor = 1
+MatchMode = 0
+TeamSide = 1
+
+[Characters]
+; Specify the characters to use for continuous battle mode. 
+; 
+
+; --- P1 side ----
+KFM_CN, 1
+
+; Specify the P2 side after this line 
+KFM_CN, 2
+
+
+

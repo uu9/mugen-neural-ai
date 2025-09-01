@@ -1,0 +1,94 @@
+
+00:06:48 -  
+00:06:48 - starter' has been started in Quick Vs. mode.
+00:06:48 -  
+00:06:48 - //////Match 1 //////
+00:06:48 - (No overall results are calculated in Quick Vs. mode)
+00:06:48 - P1 side: KFM_CN AI by Deer (1p)
+00:06:48 - P2 side: KFM_CN AI by Deer (1p)
+00:06:51 - Round 1 start!
+00:08:05 - mugen has been closed.
+00:08:20 -  
+00:08:20 - starter' has been started in Quick Vs. mode.
+00:08:21 -  
+00:08:21 - //////Match 2 //////
+00:08:21 - (No overall results are calculated in Quick Vs. mode)
+00:08:21 - P1 side: KFM_CN AI by Deer (1p)
+00:08:21 - P2 side: KFM_CN AI by Deer (2p)
+00:08:23 - Round 1 start!
+00:09:10 - ÅÀ  Player 1 side wins by judgement.
+00:09:15 - Round 2 start!
+00:10:09 - mugen has been closed.
+00:10:23 -  
+00:10:23 - starter' has been started in Quick Vs. mode.
+00:10:23 -  
+00:10:23 - //////Match 3 //////
+00:10:23 - (No overall results are calculated in Quick Vs. mode)
+00:10:23 - P1 side: KFM_CN AI by Deer (1p)
+00:10:23 - P2 side: KFM_CN AI by Deer (2p)
+00:10:25 - Round 1 start!
+00:10:51 -  
+00:10:51 - starter' has been started in Quick Vs. mode.
+00:10:51 -  
+00:10:51 - //////Match 4 //////
+00:10:51 - (No overall results are calculated in Quick Vs. mode)
+00:10:51 - P1 side: KFM_CN AI by Deer (1p)
+00:10:51 - P2 side: KFM_CN AI by Deer (2p)
+00:10:54 - Round 1 start!
+00:11:17 -  
+00:11:17 - starter' has been started in Quick Vs. mode.
+00:11:18 -  
+00:11:18 - //////Match 5 //////
+00:11:18 - (No overall results are calculated in Quick Vs. mode)
+00:11:18 - P1 side: KFM_CN AI by Deer (1p)
+00:11:18 - P2 side: KFM_CN AI by Deer (2p)
+00:11:20 - Round 1 start!
+00:11:56 - ÅÀ Player 2 side wins by judgement.
+00:13:25 -  
+00:13:25 - starter' has been started in Quick Vs. mode.
+00:13:25 -  
+00:13:25 - //////Match 6 //////
+00:13:25 - (No overall results are calculated in Quick Vs. mode)
+00:13:25 - P1 side: KFM_CN AI by Deer (1p)
+00:13:25 - P2 side: KFM_CN AI by Deer (2p)
+00:13:28 - Round 1 start!
+00:16:33 -  
+00:16:33 - starter' has been started in Quick Vs. mode.
+00:16:33 -  
+00:16:33 - //////Match 7 //////
+00:16:33 - (No overall results are calculated in Quick Vs. mode)
+00:16:33 - P1 side: KFM_CN AI by Deer (1p)
+00:16:33 - P2 side: KFM_CN AI by Deer (2p)
+00:16:44 -  
+00:16:44 - starter' has been started in Quick Vs. mode.
+00:16:44 -  
+00:16:44 - //////Match 8 //////
+00:16:44 - (No overall results are calculated in Quick Vs. mode)
+00:16:44 - P1 side: KFM_CN AI by Deer (1p)
+00:16:44 - P2 side: KFM_CN AI by Deer (2p)
+00:16:47 - Round 1 start!
+00:17:43 - ÅÀ Player 2 side wins by judgement.
+00:19:43 -  
+00:19:43 - starter' has been started in Quick Vs. mode.
+00:19:43 -  
+00:19:43 - //////Match 9 //////
+00:19:43 - (No overall results are calculated in Quick Vs. mode)
+00:19:43 - P1 side: KFM_CN AI by Deer (1p)
+00:19:43 - P2 side: KFM_CN AI by Deer (2p)
+00:19:46 - Round 1 start!
+00:20:29 -  
+00:20:29 - starter' has been started in Quick Vs. mode.
+00:20:29 -  
+00:20:29 - //////Match 10 //////
+00:20:29 - (No overall results are calculated in Quick Vs. mode)
+00:20:29 - P1 side: KFM_CN AI by Deer (1p)
+00:20:29 - P2 side: KFM_CN AI by Deer (2p)
+00:20:37 - mugen has been closed.
+00:21:43 -  
+00:21:43 - starter' has been started in Quick Vs. mode.
+00:21:43 -  
+00:21:43 - //////Match 11 //////
+00:21:43 - (No overall results are calculated in Quick Vs. mode)
+00:21:43 - P1 side: KFM_CN AI by Deer (1p)
+00:21:43 - P2 side: KFM_CN AI by Deer (2p)
+00:21:46 - Round 1 start!

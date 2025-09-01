@@ -1,0 +1,119 @@
+;
+; ƒtƒ@ƒCƒ‹–¼:profile_1.cfg.qvs
+;
+
+[VSMode]
+P1Color = 1
+P1Ai = 1
+P1LifeFlag = 0
+P1LifeValue = 1000
+P1PowerFlag = 0
+P1PowerValue = 0
+P2Color = 2
+P2Ai = 1
+P2LifeFlag = 0
+P2LifeValue = 1000
+P2PowerFlag = 0
+P2PowerValue = 0
+P3Color = 1
+P3Ai = 1
+P3LifeFlag = 0
+P3LifeValue = 1000
+P3PowerFlag = 0
+P3PowerValue = 0
+P4Color = 1
+P4Ai = 1
+P4LifeFlag = 0
+P4LifeValue = 1000
+P4PowerFlag = 0
+P4PowerValue = 0
+
+WinRounds = 5
+
+[P1History]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+D:\AI\fight-ai\mugen1.1\chars\KFM_CN\KFM_CN.def
+D:/AI/fight-ai/mugen1.1/chars/KFM_CN/KFM_CN.def
+D://AI/fight-ai/mugen1.1/chars/KFM_CN/KFM_CN.def
+KFM_CN
+
+[P2History]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+D:\AI\fight-ai\mugen1.1\chars\KFM_CN\KFM_CN.def
+D:/AI/fight-ai/mugen1.1/chars/KFM_CN/KFM_CN.def
+D://AI/fight-ai/mugen1.1/chars/KFM_CN/KFM_CN.def
+KFM_CN
+
+[P3History]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[P4History]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

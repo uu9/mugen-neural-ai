@@ -1,0 +1,142 @@
+juggle【StNo】[气][姿态][fv35][loop][x][y][fall][1矩形 2前移 3类八]
+
+4【3050】 [1] [!A] [8] [1] [27,53] [-130,-35] [1] [1]
+trigger1 = ctrl
+trigger2 = hitdefattr = SC, NA, SA, HA 
+trigger2 = (stateno != [3050,3100))
+trigger2 = movecontact
+trigger3 = stateno = 1310 || stateno = 1330
+
+type = NotHitBy
+trigger1 = AnimElem = 2
+value = , NA, SA, AT
+time = 6
+
+4【3000】 [1] [!A] [14] [1] [5,66] [-70,-35] [1] [2]
+trigger1 = ctrl
+trigger2 = hitdefattr = SC, NA, SA, HA
+trigger2 = stateno != [3000,3050)
+trigger2 = movecontact
+trigger3 = stateno = 1310 || stateno = 1330
+
+type = NotHitBy
+trigger1 = AnimElem = 2
+value = , NA, SA, AT
+time = 11
+
+trigger1 = AnimElemTime(2) >= 0 && AnimElemTime(14) < 0
+value2 = C, NA
+time = 1
+
+【1300】 [0] [!A] [1] [8] [0,40] [格挡]reversal.attr = SA,AA
+trigger1 = ctrl
+trigger2 = stateno = 1310 || stateno = 1330
+trigger2 = time > 0
+
+【1320】 [0] [!A] [1] [8] [-10,33] [格挡]reversal.attr = CA,AA
+trigger1 = ctrl
+trigger2 = stateno = 1310 || stateno = 1330
+trigger2 = time > 0
+
+【1340】 [0] [A] [1] [8] [-10,17] [格挡]reversal.attr = A,AA
+trigger1 = ctrl
+trigger2 = stateno = 1350
+trigger2 = time > 0
+
+type = CtrlSet
+trigger1 = AnimElem = 4
+value = 1
+
+6【1070】 [0.33] [var(1)] [7] [0] [0,25] [-67,-30] [1] [2]
+
+6【1020】 [0.33] [var(1)] [11] [4] [5,65] [-65,-40] [1] [2]
+
+6【1120】 [0.33] [var(1)] [3||7] [0] [0,43||25,53] [0,0||-130,-55] [0||1] [1]
+
+6【1220】 [0.33] [var(1)] [10] [2] [40,88] [-70,-40] [1] [1]
+
+6【1420】 [0.33] [var(1)] [9||16] [6||3] [5,35] [0,0||-75,-15] [0||1] [2]
+
+4【1050】 [0] [var(1)] [8] [1] [0,23] [-67,-30] [1] [2]
+
+4【1060】 [0] [var(1)] [8] [1] [0,23] [-67,-30] [1] [2]
+
+4【1000】 [0] [var(1)] [9] [2] [5,67] [-65,-40] [1] [2]
+
+4【1010】 [0] [var(1)] [10] [2] [5,67] [-65,-40] [1] [2]
+
+4【1100】 [0] [var(1)] [4||10] [1] [0,43||28,53] [0,0||-130,-55] [0||1] [1]
+
+4【1110】 [0] [var(1)] [5||12] [2||0] [0,43||28,53] [0,0||-130,-55] [0||1] [1]
+
+4【1200】 [0] [var(1)] [14] [1] [43,90] [-70,-40] [0] [1]
+
+4【1210】 [0] [var(1)] [18] [1] [43,90] [-70,-40] [0] [1]
+
+4【1400】 [0] [var(1)] [9] [3] [0,35] [-75,-15] [1] [2]
+
+4【1410】 [0] [var(1)] [10] [3] [0,35] [-75,-15] [1] [2]
+
+【800】 [0] [!A] [1] [0] [0,25] [-75,-15] [1] [2]
+trigger1 = ctrl
+trigger1 = (p2statetype = S) || (p2statetype = C)
+trigger1 = p2movetype != H
+
+1【200】 [0] [!A] [4] [3] [15,60] [0,0] [0] [1]
+trigger1 = ctrl
+trigger2 = (stateno = 200 && time > 6)
+
+4【210】 [0] [!A] [9] [1] [25,63] [0,0] [0] [1]
+trigger1 = ctrl
+trigger2 = (stateno = 200 && time > 5)
+trigger3 = (stateno = 230 && time > 6)
+
+4【230】 [0] [!A] [5] [2] [10,66] [0,0] [0] [1]
+trigger1 = ctrl
+trigger2 = (stateno = 200 && time > 7)
+trigger3 = (stateno = 230 && time > 9)
+
+5【240】 [0] [!A] [8] [3] [0,66] [0,0] [0] [1]
+trigger1 = ctrl
+trigger2 = (stateno = 200 && time > 5)
+trigger3 = (stateno = 230 && time > 6)
+
+5【400】 [0] [!A] [4] [5] [15,53] [0,0] [0] [1]
+trigger1 = ctrl
+
+6【410】 [0] [!A] [8] [6] [25,50] [-94,-50] [0] [1]
+trigger1 = ctrl
+trigger2 = (stateno = 400) || (stateno = 430)
+trigger2 = (time > 9) || (movecontact && time > 5)
+
+5【430】 [0] [!A] [5] [2] [5,62] [0,0] [0] [1]
+trigger1 = ctrl
+trigger2 = (stateno = 400 || stateno = 430)
+trigger2 = (time > 9) || (movecontact && time > 5)
+
+7【440】 [0] [!A] [10] [3] [15,75] [0,0] [0] [1]
+trigger1 = ctrl
+trigger2 = (stateno = 400) || (stateno = 430)
+trigger2 = (time > 9) || (movecontact && time > 5)
+
+2【600】 [0] [A] [4] [10] [10,47] [-70,-50] [0] [1]
+trigger1 = ctrl
+trigger2 = stateno = 600
+trigger2 = time >= 7
+trigger3 = stateno = 1350
+
+4【610】 [0] [A] [7] [4] [18,56] [-75,-40] [0] [1]
+trigger1 = ctrl
+trigger2 = stateno = 600 || stateno = 630
+trigger2 = movecontact
+trigger3 = stateno = 1350
+
+3【630】 [0] [A] [7] [11] [4,33] [-52,-25] [0] [1]
+trigger1 = ctrl
+trigger2 = stateno = 1350
+
+4【640】 [0] [A] [7] [4] [10,68] [-48,-25] [0] [1]
+trigger1 = ctrl
+trigger2 = stateno = 600 || stateno = 630
+trigger2 = movecontact
+trigger3 = stateno = 1350
