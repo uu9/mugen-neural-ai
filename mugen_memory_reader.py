@@ -94,6 +94,20 @@ class MugenMemoryReader:
         """
         player_base = self._get_player_base(player_num)
         return self.pm.read_int(player_base + self.db.PREV_STATE_NO_PLAYER_OFFSET)
+    
+    def read_player_power(self, player_num):
+        """
+        读取玩家能量
+        """
+        player_base = self._get_player_base(player_num)
+        return self.pm.read_int(player_base + self.db.POWER_PLAYER_OFFSET)
+    
+    def read_player_move_type(self, player_num):
+        """
+        读取玩家移动类型
+        """
+        player_base = self._get_player_base(player_num)
+        return self.pm.read_int(player_base + self.db.MOVE_TYPE_PLAYER_OFFSET)
 
     def __enter__(self):
         self.open_process()
@@ -125,4 +139,8 @@ if __name__ == "__main__":
         logger.info(f"玩家 2 状态编号：{reader.read_player_state_no(2)}")
         logger.info(f"玩家 1 上一帧状态编号：{reader.read_player_prev_state_no(1)}")
         logger.info(f"玩家 2 上一帧状态编号：{reader.read_player_prev_state_no(2)}")
+        logger.info(f"玩家 1 能量：{reader.read_player_power(1)}")
+        logger.info(f"玩家 2 能量：{reader.read_player_power(2)}")
+        logger.info(f"玩家 1 移动类型：{reader.read_player_move_type(1)}")
+        logger.info(f"玩家 2 移动类型：{reader.read_player_move_type(2)}")
 
