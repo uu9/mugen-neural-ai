@@ -1,4 +1,5 @@
 import ctypes
+from time import sleep
 import pymem
 import pymem.exception
 import pymem.process
@@ -108,6 +109,39 @@ class MugenMemoryReader:
         """
         player_base = self._get_player_base(player_num)
         return self.pm.read_int(player_base + self.db.MOVE_TYPE_PLAYER_OFFSET)
+    
+    def step_frame(self):
+        """
+        模拟一个游戏帧
+        """
+        self.inject_command(46)
+        
+
+    def pause(self, is_paused):
+        """
+        暂停游戏
+        """
+        pause_state = 1 if is_paused else 0
+        self.pm.write_int(self.db.PAUSE_ADDR, pause_state)
+    
+    def read_base_address(self):
+        """
+        读取Mugen游戏进程的基址
+        """
+        return self.pm.read_int(self.db.MUGEN_POINTER_BASE_OFFSET)
+    
+    def inject_command(self, command: int):
+        """
+        注入命令
+        """
+        # watcher.SetInt32Data(0U, watcher.MugenDatabase.CMD_KEY_ADDR, keyCode | 256);
+        # watcher.SetInt32Data(0U, watcher.MugenDatabase.CMD_KEY_ADDR + 4U, keyCode | 768);
+        # watcher.SetInt32Data(0U, watcher.MugenDatabase.CMD_NEXT_INDEX_ADDR, 1);
+        # watcher.SetInt32Data(0U, watcher.MugenDatabase.CMD_CURRENT_INDEX_ADDR, 0);
+        self.pm.write_int(self.db.CMD_KEY_ADDR, command | 256)
+        self.pm.write_int(self.db.CMD_KEY_ADDR + 4, command | 768)
+        self.pm.write_int(self.db.CMD_NEXT_INDEX_ADDR, 1)
+        self.pm.write_int(self.db.CMD_CURRENT_INDEX_ADDR, 0)
 
     def __enter__(self):
         self.open_process()
@@ -124,23 +158,24 @@ class MugenMemoryReader:
 
 
 if __name__ == "__main__":
-    with MugenMemoryReader() as reader:
-        logger.info(f"""\
-窗口句柄: {reader.pm.process_handle}
-进程ID: {reader.pm.process_id}
-基址: 0x{reader.pm.base_address:X}""")
-        logger.info(f"玩家 1 生命值：{reader.read_player_life(1)}")
-        logger.info(f"玩家 2 生命值：{reader.read_player_life(2)}")
-        logger.info(f"玩家 1 坐标：({reader.read_player_pos_x(1)}, {reader.read_player_pos_y(1)})")
-        logger.info(f"玩家 2 坐标：({reader.read_player_pos_x(2)}, {reader.read_player_pos_y(2)})")
-        logger.info(f"玩家 1 速度：({reader.read_player_vel_x(1)}, {reader.read_player_vel_y(1)})")
-        logger.info(f"玩家 2 速度：({reader.read_player_vel_x(2)}, {reader.read_player_vel_y(2)})")
-        logger.info(f"玩家 1 状态编号：{reader.read_player_state_no(1)}")
-        logger.info(f"玩家 2 状态编号：{reader.read_player_state_no(2)}")
-        logger.info(f"玩家 1 上一帧状态编号：{reader.read_player_prev_state_no(1)}")
-        logger.info(f"玩家 2 上一帧状态编号：{reader.read_player_prev_state_no(2)}")
-        logger.info(f"玩家 1 能量：{reader.read_player_power(1)}")
-        logger.info(f"玩家 2 能量：{reader.read_player_power(2)}")
-        logger.info(f"玩家 1 移动类型：{reader.read_player_move_type(1)}")
-        logger.info(f"玩家 2 移动类型：{reader.read_player_move_type(2)}")
-
+    while True:
+        with MugenMemoryReader() as reader:
+            reader.pause(True)
+            logger.info(f"""窗口句柄: {reader.pm.process_handle}\n进程ID: {reader.pm.process_id}\n基址: 0x{reader.pm.base_address:X}""")
+            logger.info(f"玩家 1 生命值：{reader.read_player_life(1)}")
+            logger.info(f"玩家 2 生命值：{reader.read_player_life(2)}")
+            logger.info(f"玩家 1 坐标：({reader.read_player_pos_x(1)}, {reader.read_player_pos_y(1)})")
+            logger.info(f"玩家 2 坐标：({reader.read_player_pos_x(2)}, {reader.read_player_pos_y(2)})")
+            logger.info(f"玩家 1 速度：({reader.read_player_vel_x(1)}, {reader.read_player_vel_y(1)})")
+            logger.info(f"玩家 2 速度：({reader.read_player_vel_x(2)}, {reader.read_player_vel_y(2)})")
+            logger.info(f"玩家 1 状态编号：{reader.read_player_state_no(1)}")
+            logger.info(f"玩家 2 状态编号：{reader.read_player_state_no(2)}")
+            logger.info(f"玩家 1 上一帧状态编号：{reader.read_player_prev_state_no(1)}")
+            logger.info(f"玩家 2 上一帧状态编号：{reader.read_player_prev_state_no(2)}")
+            logger.info(f"玩家 1 能量：{reader.read_player_power(1)}")
+            logger.info(f"玩家 2 能量：{reader.read_player_power(2)}")
+            logger.info(f"玩家 1 移动类型：{reader.read_player_move_type(1)}")
+            logger.info(f"玩家 2 移动类型：{reader.read_player_move_type(2)}")
+            # sleep(0.1)
+            # reader.step_frame()
+            break

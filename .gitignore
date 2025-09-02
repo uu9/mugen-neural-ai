@@ -9,5 +9,5 @@ wheels/
 # Virtual environments
 .venv
 
-mugen1.1/mugen.log
+mugen1.1/*.log
 tools/SAK-20210705/logs
