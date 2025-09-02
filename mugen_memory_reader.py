@@ -9,7 +9,7 @@ from mugen_database import Mugen11B1DB
 
 from utils.log import logger
 
-class MugenMemoryReader:
+class MugenMemoryHelper:
     def __init__(self):
         if not self.is_admin():
             raise PermissionError("请以管理员权限运行本程序")
@@ -110,6 +110,13 @@ class MugenMemoryReader:
         player_base = self._get_player_base(player_num)
         return self.pm.read_int(player_base + self.db.MOVE_TYPE_PLAYER_OFFSET)
     
+    def read_frames(self):
+        """
+        读取游戏帧数
+        """
+        game_base = self.read_base_address()
+        return self.pm.read_int(game_base + self.db.ROUND_TIME_BASE_OFFSET)
+    
     def step_frame(self):
         """
         模拟一个游戏帧
@@ -122,7 +129,8 @@ class MugenMemoryReader:
         暂停游戏
         """
         pause_state = 1 if is_paused else 0
-        self.pm.write_int(self.db.PAUSE_ADDR, pause_state)
+        game_base = self.read_base_address()
+        self.pm.write_int(game_base + self.db.PAUSE_ADDR, pause_state)
     
     def read_base_address(self):
         """
@@ -134,10 +142,6 @@ class MugenMemoryReader:
         """
         注入命令
         """
-        # watcher.SetInt32Data(0U, watcher.MugenDatabase.CMD_KEY_ADDR, keyCode | 256);
-        # watcher.SetInt32Data(0U, watcher.MugenDatabase.CMD_KEY_ADDR + 4U, keyCode | 768);
-        # watcher.SetInt32Data(0U, watcher.MugenDatabase.CMD_NEXT_INDEX_ADDR, 1);
-        # watcher.SetInt32Data(0U, watcher.MugenDatabase.CMD_CURRENT_INDEX_ADDR, 0);
         self.pm.write_int(self.db.CMD_KEY_ADDR, command | 256)
         self.pm.write_int(self.db.CMD_KEY_ADDR + 4, command | 768)
         self.pm.write_int(self.db.CMD_NEXT_INDEX_ADDR, 1)
@@ -158,24 +162,34 @@ class MugenMemoryReader:
 
 
 if __name__ == "__main__":
-    while True:
-        with MugenMemoryReader() as reader:
-            reader.pause(True)
-            logger.info(f"""窗口句柄: {reader.pm.process_handle}\n进程ID: {reader.pm.process_id}\n基址: 0x{reader.pm.base_address:X}""")
-            logger.info(f"玩家 1 生命值：{reader.read_player_life(1)}")
-            logger.info(f"玩家 2 生命值：{reader.read_player_life(2)}")
-            logger.info(f"玩家 1 坐标：({reader.read_player_pos_x(1)}, {reader.read_player_pos_y(1)})")
-            logger.info(f"玩家 2 坐标：({reader.read_player_pos_x(2)}, {reader.read_player_pos_y(2)})")
-            logger.info(f"玩家 1 速度：({reader.read_player_vel_x(1)}, {reader.read_player_vel_y(1)})")
-            logger.info(f"玩家 2 速度：({reader.read_player_vel_x(2)}, {reader.read_player_vel_y(2)})")
-            logger.info(f"玩家 1 状态编号：{reader.read_player_state_no(1)}")
-            logger.info(f"玩家 2 状态编号：{reader.read_player_state_no(2)}")
-            logger.info(f"玩家 1 上一帧状态编号：{reader.read_player_prev_state_no(1)}")
-            logger.info(f"玩家 2 上一帧状态编号：{reader.read_player_prev_state_no(2)}")
-            logger.info(f"玩家 1 能量：{reader.read_player_power(1)}")
-            logger.info(f"玩家 2 能量：{reader.read_player_power(2)}")
-            logger.info(f"玩家 1 移动类型：{reader.read_player_move_type(1)}")
-            logger.info(f"玩家 2 移动类型：{reader.read_player_move_type(2)}")
-            # sleep(0.1)
-            # reader.step_frame()
-            break
+    with MugenMemoryHelper() as helper:
+        logger.info(f"""窗口句柄: {helper.pm.process_handle}\n进程ID: {helper.pm.process_id}\n基址: 0x{helper.pm.base_address:X}""")
+        helper.pause(True)
+
+        while True:
+            # logger.info(f"玩家 1 生命值：{helper.read_player_life(1)}")
+            # logger.info(f"玩家 2 生命值：{helper.read_player_life(2)}")
+            # logger.info(f"玩家 1 坐标：({helper.read_player_pos_x(1)}, {helper.read_player_pos_y(1)})")
+            # logger.info(f"玩家 2 坐标：({helper.read_player_pos_x(2)}, {helper.read_player_pos_y(2)})")
+            # logger.info(f"玩家 1 速度：({helper.read_player_vel_x(1)}, {helper.read_player_vel_y(1)})")
+            # logger.info(f"玩家 2 速度：({helper.read_player_vel_x(2)}, {helper.read_player_vel_y(2)})")
+            # logger.info(f"玩家 1 状态编号：{helper.read_player_state_no(1)}")
+            # logger.info(f"玩家 2 状态编号：{helper.read_player_state_no(2)}")
+            # logger.info(f"玩家 1 上一帧状态编号：{helper.read_player_prev_state_no(1)}")
+            # logger.info(f"玩家 2 上一帧状态编号：{helper.read_player_prev_state_no(2)}")
+            # logger.info(f"玩家 1 能量：{helper.read_player_power(1)}")
+            # logger.info(f"玩家 2 能量：{helper.read_player_power(2)}")
+            # logger.info(f"玩家 1 移动类型：{helper.read_player_move_type(1)}")
+            # logger.info(f"玩家 2 移动类型：{helper.read_player_move_type(2)}")
+            current_frames  = after_step_frames = helper.read_frames()
+            logger.info(f"游戏帧数：{current_frames}")
+            while after_step_frames != current_frames + 1:
+                if after_step_frames > current_frames + 1:
+                    raise Exception("帧数被跳过")
+                if after_step_frames != current_frames:
+                    logger.debug(f"上一帧：{current_frames}, 差值：{after_step_frames - current_frames}")
+                # round 结束
+                if after_step_frames < current_frames:
+                    current_frames = after_step_frames
+                helper.step_frame()
+                after_step_frames = helper.read_frames()
