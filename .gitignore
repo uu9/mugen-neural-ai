@@ -10,6 +10,7 @@ wheels/
 .venv
 
 uv.lock
+.vscode
 
 mugen1.1/*.log
 tools/SAK-20210705/logs
