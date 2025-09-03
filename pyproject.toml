@@ -1,7 +1,7 @@
 [project]
-name = "fight-ai"
+name = "mugen-nerual-ai"
 version = "0.1.0"
-description = "Add your description here"
+description = "Mugen Neural AI"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
