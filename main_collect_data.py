@@ -60,20 +60,20 @@ class DataProcessor:
 def main():
     with MugenMemoryHelper() as helper:
         logger.info(
-            f"""窗口句柄: {helper.pm.process_handle}\n进程ID: {helper.pm.process_id}\n基址: 0x{helper.pm.base_address:X}""")
+            f"""Window Handle: {helper.pm.process_handle}\nProcess ID: {helper.pm.process_id}\nBase Address: 0x{helper.pm.base_address:X}""")
         helper.pause(True)
 
         data_processor = DataProcessor()
         while True:
             current_frames = after_step_frames = helper.read_frames()
-            logger.info(f"游戏帧数：{current_frames}")
+            logger.info(f"Game Frame: {current_frames}")
             while after_step_frames != current_frames + 1:
                 if after_step_frames > current_frames + 1:
-                    logger.warning("帧数被跳过")
+                    logger.warning("Frame skipped")
                 if after_step_frames != current_frames:
                     logger.debug(
-                        f"上一帧：{current_frames}, 差值：{after_step_frames - current_frames}")
-                # round 结束
+                        f"Previous frame: {current_frames}, Difference: {after_step_frames - current_frames}")
+                # Round ended
                 if after_step_frames < current_frames:
                     current_frames = after_step_frames
                     save_seq = data_processor.save()
