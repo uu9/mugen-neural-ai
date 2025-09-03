@@ -5,6 +5,7 @@ import pymem.exception
 import pymem.process
 from pymem import Pymem
 
+from models import FrameStatus, PlayerStatus
 from mugen_database import Mugen11B1DB
 
 from utils.log import logger
@@ -35,7 +36,7 @@ class MugenMemoryHelper:
 
     def _get_base_addr(self):
         base_addr = self.pm.read_int(self.db.MUGEN_POINTER_BASE_OFFSET)
-        logger.debug(f"Base Addr: {base_addr}")
+        # logger.debug(f"Base Addr: {base_addr}")
         return base_addr
 
     def _get_player_base(self, player_num):
@@ -44,7 +45,7 @@ class MugenMemoryHelper:
         """
         addr = self.base_addr + self.db.PLAYER_1_BASE_OFFSET + 4 * (player_num - 1)
         player_base = self.pm.read_int(addr)
-        logger.debug(f"Player {player_num} Base: {player_base}")
+        # logger.debug(f"Player {player_num} Base: {player_base}")
         return player_base
 
     def read_player_life(self, player_num):
@@ -159,6 +160,41 @@ class MugenMemoryHelper:
         检查当前是否以管理员权限运行
         """
         return ctypes.windll.shell32.IsUserAnAdmin()
+    
+    def read_status(self):
+        player_num=1
+        player_1_status = PlayerStatus(
+            player_num=player_num,
+            player_life=self.read_player_life(player_num),
+            player_power=self.read_player_power(player_num),
+            player_move_type=self.read_player_move_type(player_num),
+            player_state_no=self.read_player_state_no(player_num),
+            player_prev_state_no=self.read_player_prev_state_no(player_num),
+            player_pos_x=self.read_player_pos_x(player_num),
+            player_pos_y=self.read_player_pos_y(player_num),
+            player_vel_x=self.read_player_vel_x(player_num),
+            player_vel_y=self.read_player_vel_y(player_num),
+        )
+        player_num=2
+        player_2_status = PlayerStatus(
+            player_num=player_num,
+            player_life=self.read_player_life(player_num),
+            player_power=self.read_player_power(player_num),
+            player_move_type=self.read_player_move_type(player_num),
+            player_state_no=self.read_player_state_no(player_num),
+            player_prev_state_no=self.read_player_prev_state_no(player_num),
+            player_pos_x=self.read_player_pos_x(player_num),
+            player_pos_y=self.read_player_pos_y(player_num),
+            player_vel_x=self.read_player_vel_x(player_num),
+            player_vel_y=self.read_player_vel_y(player_num),
+        )
+
+        return FrameStatus(
+            current_frames=self.read_frames(),
+            player_1_status=player_1_status,
+            player_2_status=player_2_status,
+        )
+
 
 
 if __name__ == "__main__":

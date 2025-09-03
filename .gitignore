@@ -9,5 +9,9 @@ wheels/
 # Virtual environments
 .venv
 
+uv.lock
+
 mugen1.1/*.log
 tools/SAK-20210705/logs
+tools/SAK-20210705/Config.cfg
+data/
