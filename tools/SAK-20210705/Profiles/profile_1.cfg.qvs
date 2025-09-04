@@ -1,5 +1,5 @@
 ;
-; ƒtƒ@ƒCƒ‹–¼:profile_1.cfg.qvs
+; ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½:profile_1.cfg.qvs
 ;
 
 [VSMode]
@@ -28,7 +28,7 @@ P4LifeValue = 1000
 P4PowerFlag = 0
 P4PowerValue = 0
 
-WinRounds = 5
+WinRounds = 99
 
 [P1History]
 
