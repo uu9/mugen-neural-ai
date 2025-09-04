@@ -66,13 +66,13 @@ def main():
         data_processor = DataProcessor()
         while True:
             current_frames = after_step_frames = helper.read_frames()
-            logger.info(f"Game Frame: {current_frames}")
+            print(f"\rGame Frame: {current_frames}", end="")
             while after_step_frames != current_frames + 1:
                 if after_step_frames > current_frames + 1:
-                    logger.warning("Frame skipped")
+                    logger.warning("\nFrame skipped")
                 if after_step_frames != current_frames:
                     logger.debug(
-                        f"Previous frame: {current_frames}, Difference: {after_step_frames - current_frames}")
+                        f"\nPrevious frame: {current_frames}, Difference: {after_step_frames - current_frames}")
                 # Round ended
                 if after_step_frames < current_frames:
                     current_frames = after_step_frames
