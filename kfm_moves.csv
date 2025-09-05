@@ -1,0 +1,36 @@
+Move,Command,Value
+"SmashKFUpper","←↙↓↙←↙↓↙← + y",3050
+"TripleKFPalm","↓↘→↓↘→ + y",3000
+"Fast Kung Fu Knee","→→ + a+b",1070
+"Light Kung Fu Knee","→→ + a",1050
+"Strong Kung Fu Knee","→→ + b",1060
+"Fast Kung Fu Palm","↓↘→ + x+y",1020
+"Light Kung Fu Palm","↓↘→ + x",1000
+"Strong Kung Fu Palm","↓↘→ + y",1010
+"Fast Kung Fu Upper","→↓↘ + x+y",1120
+"Light Kung Fu Upper","→↓↘ + x",1100
+"Strong Kung Fu Upper","→↓↘ + y",1110
+"Fast Kung Fu Blow","←↙↓↘← + x+y",1220
+"Light Kung Fu Blow","←↙↓↘← + x",1200
+"Strong Kung Fu Blow","←↙↓↘← + y",1210
+"Far Kung Fu Zankou","↓↘→ + a+b",1420
+"Light Kung Fu Zankou","↓↘→ + a",1400
+"Strong Kung Fu Zankou","↓↘→ + b",1410
+"Run Fwd","→→",100
+"Run Back","←←",105
+"Kung Fu Throw","→ + y",800
+"Stand Light Punch","x",200
+"Stand Strong Punch","y",210
+"Stand Light Kick","a",230
+"Standing Strong Kick","b",240
+"Crouching Light Punch","↓ + x",400
+"Crouching Strong Punch","↓ + y",410
+"Crouching Light Kick","↓ + a",430
+"Crouching Strong Kick","↓ + b",440
+"Jump Light Punch","x",600
+"Jump Strong Punch","y",610
+"Jump Light Kick","a",630
+"Jump Strong Kick","b",640
+"High Kung Fu Blocking High","↓ + x",1300
+"High Kung Fu Blocking Low","↓ + x",1320
+"High Kung Fu Blocking Air","x",1340

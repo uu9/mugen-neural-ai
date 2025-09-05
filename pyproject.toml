@@ -5,8 +5,10 @@ description = "Mugen Neural AI"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "ipykernel>=6.30.1",
     "loguru>=0.7.3",
     "numpy>=2.1.2",
+    "pandas>=2.3.2",
     "pydantic>=2.11.7",
     "pymem>=1.14.0",
     "torch-directml>=0.2.5.dev240914",
